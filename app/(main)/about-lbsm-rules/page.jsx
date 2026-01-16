@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export const metadata = {
     title: "About College | LBSM College Jamshedpur",
@@ -12,12 +12,12 @@ export default function AboutCollegePage() {
             {/* ===== Banner Section ===== */}
             <section className="relative w-full h-20 md:h-26 lg:h-34 overflow-hidden">
                 {/* Background Pattern Image */}
-                <Image
+                <img
                     src="/pattern.png"
                     alt="LBSM College background pattern"
-                    fill
-                    priority
-                    className="object-cover"
+                    // fill
+                    // priority
+                    className="w-full"
                 />
 
                 {/* Overlay */}

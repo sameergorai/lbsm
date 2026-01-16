@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 
 export const metadata = {
     title: "About College | LBSM College Jamshedpur",
@@ -17,7 +17,9 @@ export default function AboutCollegePage() {
                     alt="LBSM College background pattern"
                     fill
                     priority
-                    className="object-cover"
+                    className="w-full"
+                    // width='20px'
+                    // height='20px'
                 />
 
                 {/* Overlay */}

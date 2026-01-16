@@ -4,22 +4,21 @@ import Carousel from "../components/HeroCarousel"
 
 import HomeAbout from "../components/HomeAbout"
 import MeritListScroll from "../components/MeritListScroll"
+import ImportantNotice from "../components/ImportantNotice"
+import NewsTicker from "../components/NewsTicker"
 export default function Home() {
   return (
     <div>
       <Carousel />
-
-
-
-      <div className="bg-[#a91e1e] text-white h-10 flex items-center overflow-hidden">
+      <NewsTicker />
+{/* <div className="bg-[#a91e1e] text-white h-10 flex items-center overflow-hidden">
         <div className="bg-[#a91e1e] px-6 font-bold shrink-0">LBSM @ NEWS</div>
         <div className="marquee-container px-4">
           <div className="marquee-content">
             • Admission Open • National Seminar • Holiday Notice • Exam Schedule Updated
           </div>
         </div>
-      </div>
-
+      </div> */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 m-12">
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
           <div className="bg-red-50 p-3 rounded-full shrink-0 text-red-600">
@@ -61,7 +60,7 @@ export default function Home() {
 
       <div className="flex flex-col md:flex-row gap-6 md:gap-9 p-4 md:p-8 max-w-7xl mx-auto items-center justify-center">
         <MeritListScroll />
-        <MeritListScroll />
+        <ImportantNotice />
 
         <div className="bg-white shadow-2xl w-full max-w-[350px] rounded-lg">
           <h2 className="pt-4 text-xl font-bold text-center">PRINCIPAL</h2>
