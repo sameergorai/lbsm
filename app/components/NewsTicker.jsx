@@ -7,7 +7,7 @@ export default function NewsTicker() {
   useEffect(() => {
     const fetchAlerts = async () => {
       try {
-        const res = await fetch('http://localhost/admin/notice_api.php');
+        const res = await fetch('https://sameer.edigitalindian.com/api/admin/notice_api.php');
         const data = await res.json();
         
         // Filter only 'alert' category

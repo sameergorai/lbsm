@@ -12,7 +12,7 @@ function Gallery() {
     // Fetch Gallery Data
     const fetchGallery = async () => {
         try {
-            const response = await fetch('http://localhost/admin/gallery_api.php');
+            const response = await fetch('https://sameer.edigitalindian.com/api/admin/gallery_api.php');
             const data = await response.json();
             setGalleryData(data);
         } catch (error) {
@@ -43,7 +43,7 @@ function Gallery() {
         formData.append('image', imageFile);
 
         try {
-            const response = await fetch('http://localhost/admin/gallery_api.php', {
+            const response = await fetch('https://sameer.edigitalindian.com/api/admin/gallery_api.php', {
                 method: 'POST',
                 body: formData
             });
@@ -77,7 +77,7 @@ function Gallery() {
         formData.append('id', id);
 
         try {
-            const response = await fetch('http://localhost/admin/gallery_api.php', {
+            const response = await fetch('https://sameer.edigitalindian.com/api/admin/gallery_api.php', {
                 method: 'POST',
                 body: formData
             });

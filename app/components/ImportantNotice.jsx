@@ -9,7 +9,7 @@ export default function ImportantNotice() {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const res = await fetch('http://localhost/admin/notice_api.php');
+        const res = await fetch('https://sameer.edigitalindian.com/api/admin/notice_api.php');
         const data = await res.json();
 
         // 1. Filter only 'merit' category notices

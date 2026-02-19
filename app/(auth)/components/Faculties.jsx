@@ -19,7 +19,7 @@ export default function Faculties() {
   // 1. Fetch Members on Load
   const fetchMembers = async () => {
     try {
-      const res = await fetch('http://localhost/admin/faculty_api.php');
+      const res = await fetch('https://sameer.edigitalindian.com/api/admin/faculty_api.php');
       const data = await res.json();
       setMembers(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -41,7 +41,7 @@ export default function Faculties() {
     const formData = new FormData(e.currentTarget);
 
     try {
-      const res = await fetch('http://localhost/admin/faculty_api.php', {
+      const res = await fetch('https://sameer.edigitalindian.com/api/admin/faculty_api.php', {
         method: 'POST',
         body: formData,
       });
@@ -72,7 +72,7 @@ export default function Faculties() {
     formData.append('id', id);
 
     try {
-      const res = await fetch('http://localhost/admin/faculty_api.php', {
+      const res = await fetch('https://sameer.edigitalindian.com/api/admin/faculty_api.php', {
         method: 'POST',
         body: formData,
       });

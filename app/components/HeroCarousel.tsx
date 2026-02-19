@@ -299,7 +299,7 @@ export default function Carousel() {
   useEffect(() => {
     const fetchCarousel = async () => {
       try {
-        const res = await fetch('http://localhost/admin/carousel_api.php');
+        const res = await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php');
         const data = await res.json();
 
         // Map backend fields (image_url) to frontend interface (imageUrl)
@@ -342,19 +342,19 @@ export default function Carousel() {
   }
 
   return (
-    <div className="w-full mx-auto  md:h-full">
+    <div className="w-full mx-auto  h-[60vh]">
       {/* Carousel Container */}
       <div
-        className="relative  overflow-hidden shadow-lg h-70 md:h-[500px] bg-gray-100"
+        className="relative  overflow-hidden shadow-lg h-[60vh] bg-gray-100"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
         {/* Carousel Content */}
-        <div className="relative w-[100vw] h-90  md:h-full">
+        <div className="relative w-[100vw] h-[60vh]">
           {carouselItems.map((item, index) => (
             <div
               key={item.id}
-              className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${index === currentIndex
+              className={`absolute inset-0 w-full h-[60vh] transition-all duration-500 ease-in-out ${index === currentIndex
                 ? 'opacity-100'
                 : 'opacity-0 '
                 }`}
@@ -363,7 +363,7 @@ export default function Carousel() {
               <img
                 src={item.imageUrl}
                 alt={item.title}
-                className="w-[100vw] md:h-full object-cover"
+                className="w-[100vw] h-[60vh] object-cover"
               />
 
               {/* Title Overlay - Fixed */}

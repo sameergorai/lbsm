@@ -239,7 +239,6 @@
 // }
 
 
-
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -248,7 +247,7 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
-    mobile: '', // Changed from email to mobile
+    mobile: '',
     password: '',
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -269,7 +268,7 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.mobile.length !== 10) {
-      setError('Please enter a valid 10-digit mobile number');
+      setError('Please enter a valid 10-digit mobile number.');
       return;
     }
 
@@ -277,47 +276,62 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost/admin/login.php', {
+      const response = await fetch('https://sameer.edigitalindian.com/api/admin/login.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
-        credentials: 'include', // Important for HttpOnly cookies
+        credentials: 'include', 
       });
 
-      const data = await response.json();
+      // 1. Check content type to avoid JSON parsing errors
+      const contentType = response.headers.get("content-type");
+      let data;
+      
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        // If server returns HTML error page (common 500/404 issue)
+        const text = await response.text();
+        console.error("Server returned non-JSON response:", text);
+        throw new Error("Server error. Please contact support.");
+      }
 
       if (response.ok) {
-        router.push('/admin'); // Redirect to your admin dashboard
+        router.push('/admin'); 
       } else {
-        setError(data.message || 'Invalid credentials');
+        setError(data.message || 'Invalid credentials.');
       }
-    } catch (err) {
-      setError('Connection to server failed. Please try again.');
+    } catch (err: any) {
+      console.error("Login Error:", err);
+      // Show actual error if available, otherwise generic message
+      setError(err.message || 'Connection to server failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
+    // Updated padding: 'p-4' for mobile (compact)
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="max-w-xl w-full bg-white rounded-2xl shadow-xl p-8 md:p-12">
-        <div className="text-center mb-10">
+      {/* Reduced padding inside card for mobile: p-6 instead of p-8 */}
+      <div className="max-w-xl w-full bg-white rounded-2xl shadow-xl p-6 md:p-12">
+        <div className="text-center mb-8">
           <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
             <span className="text-white text-3xl font-bold">L</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Welcome Back</h2>
-          <p className="text-gray-600 mt-2">Sign in using your mobile number</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Welcome Back</h2>
+          <p className="text-gray-600 mt-2 text-sm md:text-base">Sign in using your mobile number</p>
         </div>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm border border-red-200 animate-pulse">
+            <div className="bg-red-50 text-red-600 p-3 rounded-xl text-sm border border-red-200 animate-pulse text-center">
               {error}
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Mobile Number</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">Mobile Number</label>
             <input
               name="mobile"
               type="tel"
@@ -325,13 +339,13 @@ export default function LoginPage() {
               maxLength={10}
               value={formData.mobile}
               onChange={handleChange}
-              className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+              className="w-full px-4 py-3 md:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all text-base"
               placeholder="Enter 10-digit number"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">Password</label>
             <div className="relative">
               <input
                 name="password"
@@ -339,13 +353,13 @@ export default function LoginPage() {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all pr-12"
+                className="w-full px-4 py-3 md:py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all pr-12 text-base"
                 placeholder="Enter password"
               />
               <button 
                 type="button" 
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-4 text-gray-400 hover:text-indigo-600"
+                className="absolute right-4 top-3 md:top-4 text-gray-400 hover:text-indigo-600"
               >
                 {showPassword ? <EyeSlashIcon className="h-6 w-6" /> : <EyeIcon className="h-6 w-6" />}
               </button>
@@ -355,14 +369,14 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 shadow-lg active:scale-[0.98] transition-all disabled:opacity-50"
+            className="w-full py-3 md:py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 shadow-lg active:scale-[0.98] transition-all disabled:opacity-50"
           >
             {isLoading ? 'Verifying...' : 'Sign In'}
           </button>
         </form>
 
-        <div className="mt-8 pt-8 border-t border-gray-100 text-center">
-          <p className="text-gray-600">
+        <div className="mt-6 pt-6 border-t border-gray-100 text-center">
+          <p className="text-gray-600 text-sm">
             Don't have an account? <Link href="/register" className="text-indigo-600 font-bold hover:underline">Register Now</Link>
           </p>
         </div>

@@ -12,7 +12,7 @@ function Carousel() {
     // Fetch Data
     const fetchCarousel = async () => {
         try {
-            const res = await fetch('http://localhost/admin/carousel_api.php');
+            const res = await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php');
             const data = await res.json();
             setCarouselData(data);
         } catch (err) {
@@ -35,7 +35,7 @@ function Carousel() {
         formData.append('description', description);
 
         try {
-            const res = await fetch('http://localhost/admin/carousel_api.php', {
+            const res = await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php', {
                 method: 'POST',
                 body: formData
             });
@@ -66,7 +66,7 @@ function Carousel() {
         formData.append('id', id);
 
         try {
-            await fetch('http://localhost/admin/carousel_api.php', {
+            await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php', {
                 method: 'POST',
                 body: formData
             });
