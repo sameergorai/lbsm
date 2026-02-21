@@ -130,7 +130,7 @@ export default function GalleryPage() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch('https://sameer.edigitalindian.com/api/admin/gallery_api.php');
+        const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/gallery_api.php`);
         const data = await res.json();
         
         if (Array.isArray(data)) {

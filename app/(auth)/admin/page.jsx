@@ -26,7 +26,7 @@ export default function Page() {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const res = await fetch('https://sameer.edigitalindian.com/api/admin/check_auth.php', { credentials: 'include' });
+                const res = await fetch('https://www.lbsmcollege.ac.in/api/admin/check_auth.php', { credentials: 'include' });
                 if (!res.ok) router.push('/login');
             } catch {
                 router.push('/login');
@@ -38,7 +38,7 @@ export default function Page() {
     // -- Logout Logic --
     const handleLogout = async () => {
         try {
-            await fetch('https://sameer.edigitalindian.com/api/admin/logout.php', { method: 'POST', credentials: 'include' });
+            await fetch(`https://www.lbsmcollege.ac.inapi/admin/logout.php`, { method: 'POST', credentials: 'include' });
             localStorage.removeItem('user_name');
             router.push('/login');
         } catch {

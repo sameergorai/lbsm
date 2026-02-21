@@ -299,7 +299,7 @@ export default function Carousel() {
   useEffect(() => {
     const fetchCarousel = async () => {
       try {
-        const res = await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php');
+        const res = await fetch('https://www.lbsmcollege.ac.in/api/admin/carousel_api.php');
         const data = await res.json();
 
         // Map backend fields (image_url) to frontend interface (imageUrl)

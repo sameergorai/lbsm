@@ -232,7 +232,7 @@ function Notice() {
     // Fetch Notices from DB
     const fetchNotices = async () => {
         try {
-            const res = await fetch('https://sameer.edigitalindian.com/api/admin/notice_api.php');
+            const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/notice_api.php`);
             const data = await res.json();
             setNotices(Array.isArray(data) ? data : []);
         } catch (error) {
@@ -265,7 +265,7 @@ function Notice() {
         formData.append('file', fileInput.files[0]);
 
         try {
-            const res = await fetch('https://sameer.edigitalindian.com/api/admin/notice_api.php', {
+            const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/notice_api.php`, {
                 method: 'POST',
                 body: formData
             });
@@ -295,7 +295,7 @@ function Notice() {
         formData.append('id', id);
 
         try {
-            await fetch('https://sameer.edigitalindian.com/api/admin/notice_api.php', { method: 'POST', body: formData });
+            await fetch(`https://www.lbsmcollege.ac.in/api/admin/notice_api.php`, { method: 'POST', body: formData });
             fetchNotices();
         } catch(e) { console.error(e); }
     };

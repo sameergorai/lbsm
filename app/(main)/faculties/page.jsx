@@ -135,7 +135,7 @@ export default function FacultyPage() {
   useEffect(() => {
     const fetchFaculty = async () => {
       try {
-        const res = await fetch('http://localhost/admin/faculty_api.php');
+        const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/faculty_api.php`);
         const data = await res.json();
         
         if (Array.isArray(data)) {

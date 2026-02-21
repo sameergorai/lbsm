@@ -12,7 +12,7 @@ function Carousel() {
     // Fetch Data
     const fetchCarousel = async () => {
         try {
-            const res = await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php');
+            const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/carousel_api.php`);
             const data = await res.json();
             setCarouselData(data);
         } catch (err) {
@@ -35,7 +35,7 @@ function Carousel() {
         formData.append('description', description);
 
         try {
-            const res = await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php', {
+            const res = await fetch(`https://www.lbsmcollege.ac.in//api/admin/carousel_api.php`, {
                 method: 'POST',
                 body: formData
             });
@@ -66,7 +66,7 @@ function Carousel() {
         formData.append('id', id);
 
         try {
-            await fetch('https://sameer.edigitalindian.com/api/admin/carousel_api.php', {
+            await fetch(`https://www.lbsmcollege.ac.in//api/admin/carousel_api.php`, {
                 method: 'POST',
                 body: formData
             });
@@ -131,7 +131,7 @@ function Carousel() {
             <h3 className="font-bold text-gray-800 mb-4">Current Carousel Images</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {carouselData.map((item) => (
+                {carouselData?.map((item) => (
                     <div key={item.id} className="bg-white rounded-lg shadow overflow-hidden relative group flex flex-col">
                         {/* Image */}
                         <div className="h-40 w-full relative">

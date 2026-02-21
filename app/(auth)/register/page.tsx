@@ -536,7 +536,7 @@ export default function RegisterPage() {
       // REAL PHP INTEGRATION LOGIC START
       // ---------------------------------------------------------
       
-      const response = await fetch('http://localhost/admin/register.php', {
+      const response = await fetch('https://www.lbsmcollege.ac.in/api/admin/register.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -12,7 +12,7 @@ const ContactSection = () => {
     const formData = new FormData(e.target);
 
     try {
-      const res = await fetch('https://sameer.edigitalindian.com/api/admin/contact_api.php', {
+      const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/contact_api.php`, {
         method: 'POST',
         body: formData,
       });

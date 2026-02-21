@@ -339,6 +339,8 @@
 import { useState } from "react";
 import { Menu, X, Phone, Mail, ChevronDown, GraduationCap } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -372,9 +374,16 @@ export default function Header() {
       </div>
 
       {/* Logo Section */}
-      <a href="/" className="bg-white py-4 shadow-sm">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-          <div className="flex flex-col">
+
+      <a href="/" className=" shadow-sm bg-white">
+
+        <div className="bg-white container flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+          <img
+            src="/lbsm-college.avif"
+            alt="logo"
+            className="w-26 h-24"
+          />
+          <div className="flex flex-col bg-white">
             <h1 className="text-[#002147] text-xl md:text-3xl font-extrabold uppercase">
               Lal Bahadur Shastri Memorial College
             </h1>

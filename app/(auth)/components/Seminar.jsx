@@ -246,7 +246,7 @@ export default function Faculties() {
   const [loading, setLoading] = useState(false);
 
   const fetchList = async () => {
-    const res = await fetch('https://sameer.edigitalindian.com/api/admin/faculty_upload_api.php');
+    const res = await fetch(`https://www.lbsmcollege.ac.in/api/admin/faculty_upload_api.php`);
     setList(await res.json());
   };
 
@@ -257,7 +257,7 @@ export default function Faculties() {
     setLoading(true);
     const formData = new FormData(e.target);
 
-    await fetch('https://sameer.edigitalindian.com/api/admin/faculty_upload_api.php', { method: 'POST', body: formData });
+    await fetch(`https://www.lbsmcollege.ac.in/api/admin/faculty_upload_api.php`, { method: 'POST', body: formData });
     
     e.target.reset();
     fetchList();
@@ -269,7 +269,7 @@ export default function Faculties() {
     const formData = new FormData();
     formData.append('action', 'delete');
     formData.append('id', id);
-    await fetch('https://sameer.edigitalindian.com/api/admin/faculty_upload_api.php', { method: 'POST', body: formData });
+    await fetch(`https://www.lbsmcollege.ac.in/api/admin/faculty_upload_api.php`, { method: 'POST', body: formData });
     fetchList();
   };
 

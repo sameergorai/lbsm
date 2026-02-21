@@ -276,7 +276,7 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const response = await fetch('https://sameer.edigitalindian.com/api/admin/login.php', {
+      const response = await fetch('https://www.lbsmcollege.ac.in/api/admin/login.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
