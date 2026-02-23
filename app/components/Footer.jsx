@@ -60,7 +60,7 @@ const Footer = () => {
         
         <div className="copyright-area">
             <div className="container">
-                <p>&copy; 2022 LBSM College. All Rights Reserved | Powered by <a href="#">SAMEER</a></p>
+                <p>&copy; 2022 LBSM College. All Rights Reserved | Powered by <Link href="https://edigitalindian.com/">E Digital India</Link></p>
             </div>
         </div>
     </footer>

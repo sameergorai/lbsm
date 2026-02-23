@@ -353,13 +353,13 @@ export default function Header() {
       <div className="bg-[#c9302c] text-white text-[11px] font-medium py-1.5">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="hidden lg:flex space-x-4">
-            <a className="hover:underline">NAAC</a>
-            <a className="hover:underline">IQAC</a>
-            <a className="hover:underline">NIRF</a>
-            <a className="hover:underline">RUSA</a>
-            <a className="hover:underline">Online Fee Payment</a>
-            <a className="hover:underline">E-Kalyan</a>
-            <a className="hover:underline">Old Website</a>
+            <Link href='/' className="hover:underline">NAAC</Link>
+            <Link href='/' className="hover:underline">IQAC</Link>
+            <Link href='/' className="hover:underline">NIRF</Link>
+            <Link href='/' className="hover:underline">RUSA</Link>
+            <Link href='/' className="hover:underline">Online Fee Payment</Link>
+            <Link href='/' className="hover:underline">E-Kalyan</Link>
+            {/* <Link className="hover:underline">Old Website</Link> */}
           </div>
 
           <div className="flex items-center space-x-4 justify-center md:justify-end">

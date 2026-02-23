@@ -166,7 +166,7 @@ export default function Page() {
                                 
                                 {/* Welcome Banner */}
                                 <div className="bg-indigo-600 rounded-2xl p-6 text-white shadow-lg shadow-indigo-200">
-                                    <h3 className="text-lg font-bold">Welcome back, Sameer!</h3>
+                                    <h3 className="text-lg font-bold">Welcome back</h3>
                                     <p className="text-indigo-100 text-sm mt-1">You have 5 unread inquiries today.</p>
                                 </div>
                             </div>

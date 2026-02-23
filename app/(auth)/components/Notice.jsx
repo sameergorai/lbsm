@@ -377,7 +377,7 @@ function Notice() {
                                 <input 
                                     type="file" 
                                     required
-                                    accept=".pdf" 
+                                    // accept=".pdf" 
                                     className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-50 file:text-slate-700 hover:file:bg-slate-100 cursor-pointer" 
                                 />
                             </div>

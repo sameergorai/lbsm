@@ -598,18 +598,18 @@ export default function RegisterPage() {
     return 'Strong';
   };
 return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center p-4 md:p-8 text-black">
+    <div className=" bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center  text-black">
       {/* Increased max-width from 4xl to 6xl for a wider feel */}
-      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden">
+      <div className="w-full bg-white  shadow-xl overflow-hidden">
         <div className="flex flex-col md:flex-row">
           
           {/* Left side - Form Section */}
-          <div className="flex-1 p-8 md:p-16"> {/* Increased padding for breathability */}
+          <div className="min-h-screen flex-1 p-1"> {/* Increased padding for breathability */}
             <div className="text-center mb-10">
               <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">Create Account</h1>
-              <p className="mt-3 text-lg text-gray-600">
+              {/* <p className="mt-3 text-lg text-gray-600">
                 Join our community today
-              </p>
+              </p> */}
             </div>
 
             {/* Added a max-width to the form itself so it doesn't get TOO wide on massive screens, but feels wider than before */}

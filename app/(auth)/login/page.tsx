@@ -312,14 +312,19 @@ export default function LoginPage() {
 
   return (
     // Updated padding: 'p-4' for mobile (compact)
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
       {/* Reduced padding inside card for mobile: p-6 instead of p-8 */}
-      <div className="max-w-xl w-full bg-white rounded-2xl shadow-xl p-6 md:p-12">
+      <div className="max-w-xl w-full   md:p-7">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <span className="text-white text-3xl font-bold">L</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Welcome Back</h2>
+          {/* <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <span className="text-white text-3xl font-bold">LBSm</span>
+          </div> */}
+           <img
+            src="/lbsm-college.avif"
+            alt="logo"
+            className="w-26 h-24 m-auto"
+          />
+          {/* <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Welcome Back</h2> */}
           <p className="text-gray-600 mt-2 text-sm md:text-base">Sign in using your mobile number</p>
         </div>
 
