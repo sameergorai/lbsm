@@ -52,7 +52,7 @@ export default function AboutCollegePage() {
                     <div className="px-1 mx-auto flex flex-col lg:flex-row gap-8 items-center">
 
                         <img
-                            src="/school.jpg"
+                            src="/Principle.png"
                             alt=""
                             className="w-full  h-64 md:h-[600px] object-cover rounded-lg"
                         />

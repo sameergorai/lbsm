@@ -3,8 +3,6 @@ import './footer.css'
 
 const Footer = () => {
   return (
- 
-
     <footer className="footer-section">
         <div className="container">
             <div className="footer-content">
@@ -19,13 +17,15 @@ const Footer = () => {
                 <div className="footer-col links">
                     <h2>Quick Links</h2>
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT US</a></li>
-                        <li><a href="#">PRINCIPAL DESK</a></li>
-                        <li><a href="#">FACULTIES</a></li>
-                        <li><a href="#">GALLERY</a></li>
-                        <li><a href="#">CONTACT US</a></li>
-                        <li><a href="#">ADMIN LOGIN</a></li>
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/about_college">ABOUT US</a></li>
+                        <li><a href="/principal_desk">PRINCIPAL DESK</a></li>
+                        <li><a href="/faculties">FACULTIES</a></li>
+                        <li><a href="/gallery">GALLERY</a></li>
+                        <li><a href="/contact">CONTACT US</a></li>
+                        {/* UGC Guidelines added here */}
+                        <li><a href="/7822003_GUIDELINES-ON-PUBLIC-SELF-DISCLOSURE-BY-HIGHER-EDUCATION-INSTITUTIONS.pdf" target="_blank">UGC GUIDELINES</a></li>
+                        <li><Link href="/login">ADMIN LOGIN</Link></li>
                     </ul>
                 </div>
 

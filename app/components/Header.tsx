@@ -333,36 +333,34 @@
 //     );
 // }
 
-
 "use client";
 
 import { useState } from "react";
 import { Menu, X, Phone, Mail, ChevronDown, GraduationCap } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutMobileOpen, setIsAboutMobileOpen] = useState(false);
   const [isEventsMobileOpen, setIsEventsMobileOpen] = useState(false);
+  const [isQuickLinksOpen, setIsQuickLinksOpen] = useState(false); // Added for top-bar links on mobile
 
   return (
     <div className="w-full">
       {/* Top Bar */}
       <div className="bg-[#c9302c] text-white text-[11px] font-medium py-1.5">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
+          {/* Desktop Top Links */}
           <div className="hidden lg:flex space-x-4">
-            <Link href='/' className="hover:underline">NAAC</Link>
-            <Link href='/' className="hover:underline">IQAC</Link>
-            <Link href='/' className="hover:underline">NIRF</Link>
-            <Link href='/' className="hover:underline">RUSA</Link>
+            <Link href='/NAACCertificate.jpeg' target="_blank" className="hover:underline">NAAC</Link>
+            <Link href='/IQAC.pdf' target="_blank" className="hover:underline">IQAC</Link>
+            <Link href='https://www.nirfindia.org/' className="hover:underline">NIRF</Link>
+            <Link href='https://rusa.nic.in/' target="_blank" className="hover:underline">RUSA</Link>
             <Link href='/' className="hover:underline">Online Fee Payment</Link>
-            <Link href='/' className="hover:underline">E-Kalyan</Link>
-            {/* <Link className="hover:underline">Old Website</Link> */}
+            <Link href='https://ekalyan.cgg.gov.in/collServices202526.do' target="_blank" className="hover:underline">E-Kalyan</Link>
           </div>
 
-          <div className="flex items-center space-x-4 justify-center md:justify-end">
+          <div className="flex items-center space-x-4 justify-center md:justify-end w-full lg:w-auto">
             <span className="flex items-center gap-1">
               <Phone size={10} /> +91-9334710089
             </span>
@@ -374,43 +372,41 @@ export default function Header() {
       </div>
 
       {/* Logo Section */}
-
-      <a href="/" className=" shadow-sm bg-white">
-
-        <div className="bg-white container flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+      <Link href="/" className="block shadow-sm bg-white py-3">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-3 md:gap-4 text-center md:text-left">
           <img
             src="/lbsm-college.avif"
-            alt="logo"
-            className="w-26 h-24"
+            alt="LBSM College Logo"
+            className="w-20 h-20 md:w-24 md:h-24 object-contain"
           />
           <div className="flex flex-col bg-white">
-            <h1 className="text-[#002147] text-xl md:text-3xl font-extrabold uppercase">
+            <h1 className="text-[#002147] text-lg sm:text-xl md:text-3xl font-extrabold uppercase leading-tight">
               Lal Bahadur Shastri Memorial College
             </h1>
-            <div className="text-gray-600 text-sm">
+            <div className="text-gray-600 text-xs sm:text-sm mt-1">
               Jamshedpur, Jharkhand (India)
             </div>
-            <div className="text-gray-500 text-xs uppercase">
+            <div className="text-gray-500 text-[10px] sm:text-xs uppercase mt-0.5">
               A Constituent Unit of Kolhan University
             </div>
-            <div className="text-green-700 font-bold text-lg font-serif">
+            <div className="text-green-700 font-bold text-base sm:text-lg font-serif mt-1">
               लाल बहादुर शास्त्री मेमोरियल कॉलेज
             </div>
           </div>
         </div>
-      </a>
+      </Link>
 
       {/* Navigation */}
       <div className="bg-black text-white text-[13px] font-bold uppercase relative z-50">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex items-center justify-between h-12">
+          <div className="flex items-center justify-between h-14 md:h-12">
 
-            {/* Mobile Button */}
+            {/* Mobile Menu Button */}
             <button
-              className="md:hidden"
+              className="md:hidden p-2 -ml-2 text-white hover:text-red-400 focus:outline-none"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X /> : <Menu />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
             {/* Desktop Menu */}
@@ -423,106 +419,104 @@ export default function Header() {
 
               {/* About */}
               <li className="h-full relative group">
-                <span className="h-full px-4 flex items-center gap-1 hover:text-red-400">
+                <span className="h-full px-4 flex items-center gap-1 hover:text-red-400 cursor-pointer">
                   About the College <ChevronDown size={10} />
                 </span>
                 <div className="absolute top-full left-0 w-52 bg-[#1a1a1a] hidden group-hover:block border-t-2 border-[#c9302c]">
-                  <Link href="/about_college" className="block px-4 py-3 hover:bg-[#c9302c]">
-                    About the College
-                  </Link>
-                  <Link href="/principal_desk" className="block px-4 py-3 hover:bg-[#c9302c]">
-                    Principal’s Message
-                  </Link>
-                  <Link href="/about-lbsm-rules" className="block px-4 py-3 hover:bg-[#c9302c]">
-                    Rules & Regulations
-                  </Link>
+                  <Link href="/about_college" className="block px-4 py-3 hover:bg-[#c9302c]">About the College</Link>
+                  <Link href="/principal_desk" className="block px-4 py-3 hover:bg-[#c9302c]">Principal’s Message</Link>
+                  <Link href="/about-lbsm-rules" className="block px-4 py-3 hover:bg-[#c9302c]">Rules & Regulations</Link>
                 </div>
               </li>
 
               <li className="h-full">
-                <Link href="/faculties" className="h-full px-4 flex items-center hover:text-red-400">
-                  Faculty
-                </Link>
+                <Link href="/faculties" className="h-full px-4 flex items-center hover:text-red-400">Faculty</Link>
               </li>
 
               <li className="h-full">
-                <Link href="/gallery" className="h-full px-4 flex items-center hover:text-red-400">
-                  Photo Gallery
-                </Link>
+                <Link href="/gallery" className="h-full px-4 flex items-center hover:text-red-400">Photo Gallery</Link>
               </li>
 
               {/* Academic Events */}
               <li className="h-full relative group">
-                <span className="h-full px-4 flex items-center gap-1 hover:text-red-400">
+                <span className="h-full px-4 flex items-center gap-1 hover:text-red-400 cursor-pointer">
                   Academic Events <ChevronDown size={10} />
                 </span>
                 <div className="absolute top-full left-0 w-56 bg-[#1a1a1a] hidden group-hover:block border-t-2 border-[#c9302c]">
-                  <Link href="/past-seminars" className="block px-4 py-3 hover:bg-[#c9302c]">
-                    Past Seminars
-                  </Link>
-                  <Link href="/ongoing-seminars" className="block px-4 py-3 hover:bg-[#c9302c]">
-                    Ongoing Seminars
-                  </Link>
-                  <Link href="/upcoming-seminars" className="block px-4 py-3 hover:bg-[#c9302c]">
-                    Upcoming Seminars
-                  </Link>
+                  <Link href="/past-seminars" className="block px-4 py-3 hover:bg-[#c9302c]">Past Seminars</Link>
+                  <Link href="/ongoing-seminars" className="block px-4 py-3 hover:bg-[#c9302c]">Ongoing Seminars</Link>
+                  <Link href="/upcoming-seminars" className="block px-4 py-3 hover:bg-[#c9302c]">Upcoming Seminars</Link>
                 </div>
               </li>
 
               <li className="h-full">
-                <Link href="/contact" className="h-full px-4 flex items-center hover:text-red-400">
-                  Contact Us
-                </Link>
+                <Link href="/contact" className="h-full px-4 flex items-center hover:text-red-400">Contact Us</Link>
               </li>
             </ul>
 
-            {/* Login */}
+            {/* Login Button (Responsive text) */}
             <Link
               href="/login"
-              className="bg-[#d9534f] px-4 py-1.5 rounded text-sm flex items-center gap-2"
+              className="bg-[#d9534f] px-3 py-2 md:px-4 md:py-1.5 rounded text-xs md:text-sm flex items-center gap-2 whitespace-nowrap"
             >
               <GraduationCap size={16} />
-              Student Login / Registration
+              <span className="hidden sm:inline">Student Login / Registration</span>
+              <span className="sm:hidden">Login</span>
             </Link>
           </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden bg-[#1a1a1a]">
-              <Link href="/" className="block py-3 px-4 border-b">Home</Link>
-
-              <button
-                onClick={() => setIsAboutMobileOpen(!isAboutMobileOpen)}
-                className="w-full flex justify-between px-4 py-3 border-b"
-              >
-                About the College <ChevronDown />
-              </button>
-
-              {isAboutMobileOpen && (
-                <div className="bg-[#111] pl-6">
-                  <Link href="/about_college" className="block py-3">About</Link>
-                  <Link href="/principal_desk" className="block py-3">Principal’s Message</Link>
-                  <Link href="/about-lbsm-rules" className="block py-3">Rules</Link>
-                </div>
-              )}
-
-              <button
-                onClick={() => setIsEventsMobileOpen(!isEventsMobileOpen)}
-                className="w-full flex justify-between px-4 py-3 border-b"
-              >
-                Academic Events <ChevronDown />
-              </button>
-
-              {isEventsMobileOpen && (
-                <div className="bg-[#111] pl-6">
-                  <Link href="/past-seminars" className="block py-3">Past Seminars</Link>
-                  <Link href="/ongoing-seminars" className="block py-3">Ongoing Seminars</Link>
-                  <Link href="/upcoming-seminars" className="block py-3">Upcoming Seminars</Link>
-                </div>
-              )}
-            </div>
-          )}
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-[#1a1a1a] absolute w-full left-0 top-full shadow-lg border-t border-gray-800 pb-4">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 px-4 border-b border-gray-800">Home</Link>
+
+            {/* Mobile About */}
+            <button onClick={() => setIsAboutMobileOpen(!isAboutMobileOpen)} className="w-full flex justify-between px-4 py-3 border-b border-gray-800">
+              About the College <ChevronDown size={16} className={`transition-transform ${isAboutMobileOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isAboutMobileOpen && (
+              <div className="bg-[#111] pl-6 text-gray-300">
+                <Link href="/about_college" onClick={() => setIsMobileMenuOpen(false)} className="block py-2.5 border-b border-gray-800/50">About</Link>
+                <Link href="/principal_desk" onClick={() => setIsMobileMenuOpen(false)} className="block py-2.5 border-b border-gray-800/50">Principal’s Message</Link>
+                <Link href="/about-lbsm-rules" onClick={() => setIsMobileMenuOpen(false)} className="block py-2.5">Rules & Regulations</Link>
+              </div>
+            )}
+
+            {/* Missing Links Added Here */}
+            <Link href="/faculties" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 px-4 border-b border-gray-800">Faculty</Link>
+            <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 px-4 border-b border-gray-800">Photo Gallery</Link>
+
+            {/* Mobile Events */}
+            <button onClick={() => setIsEventsMobileOpen(!isEventsMobileOpen)} className="w-full flex justify-between px-4 py-3 border-b border-gray-800">
+              Academic Events <ChevronDown size={16} className={`transition-transform ${isEventsMobileOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isEventsMobileOpen && (
+              <div className="bg-[#111] pl-6 text-gray-300">
+                <Link href="/past-seminars" onClick={() => setIsMobileMenuOpen(false)} className="block py-2.5 border-b border-gray-800/50">Past Seminars</Link>
+                <Link href="/ongoing-seminars" onClick={() => setIsMobileMenuOpen(false)} className="block py-2.5 border-b border-gray-800/50">Ongoing Seminars</Link>
+                <Link href="/upcoming-seminars" onClick={() => setIsMobileMenuOpen(false)} className="block py-2.5">Upcoming Seminars</Link>
+              </div>
+            )}
+
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 px-4 border-b border-gray-800">Contact Us</Link>
+
+            {/* Mobile Quick Links (Recovered from the hidden Top Bar) */}
+            <button onClick={() => setIsQuickLinksOpen(!isQuickLinksOpen)} className="w-full flex justify-between px-4 py-3 text-[#c9302c]">
+              Important Links <ChevronDown size={16} className={`transition-transform ${isQuickLinksOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isQuickLinksOpen && (
+              <div className="bg-[#111] pl-6 text-gray-400 text-xs">
+                <Link href="/NAACCertificate.jpeg" target="_blank" className="block py-2.5">NAAC</Link>
+                <Link href="/IQAC.pdf" target="_blank" className="block py-2.5">IQAC</Link>
+                <Link href="https://www.nirfindia.org/" className="block py-2.5">NIRF</Link>
+                <Link href="https://rusa.nic.in/" target="_blank" className="block py-2.5">RUSA</Link>
+                <Link href="/" className="block py-2.5">Online Fee Payment</Link>
+                <Link href="https://ekalyan.cgg.gov.in/collServices202526.do" target="_blank" className="block py-2.5">E-Kalyan</Link>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

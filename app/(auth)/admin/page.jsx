@@ -18,7 +18,7 @@ const Icons = {
 };
 
 export default function Page() {
-    const [activeSection, setActiveSection] = useState('dashboard');
+    const [activeSection, setActiveSection] = useState('carousel');
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const router = useRouter();
 
@@ -38,7 +38,7 @@ export default function Page() {
     // -- Logout Logic --
     const handleLogout = async () => {
         try {
-            await fetch(`https://www.lbsmcollege.ac.inapi/admin/logout.php`, { method: 'POST', credentials: 'include' });
+            await fetch(`https://www.lbsmcollege.ac.in/api/admin/logout.php`, { method: 'POST', credentials: 'include' });
             localStorage.removeItem('user_name');
             router.push('/login');
         } catch {
@@ -54,9 +54,9 @@ export default function Page() {
         { id: 'gallery', label: 'Gallery', icon: <Icons.Media /> },
         { id: 'FACULTIES ', label: 'Faculty', icon: <Icons.Users /> },
         { id: 'seminar', label: 'Seminars', icon: <Icons.Dashboard /> },
-        { id: 'sport', label: 'Sports', icon: <Icons.Dashboard /> },
+        // { id: 'sport', label: 'Sports', icon: <Icons.Dashboard /> },
         { id: 'notice', label: 'Notices', icon: <Icons.Dashboard /> },
-        { id: 'contact', label: 'Inquiries', icon: <Icons.Users /> },
+        // { id: 'contact', label: 'Inquiries', icon: <Icons.Users /> },
     ];
 
     return (
@@ -190,7 +190,7 @@ export default function Page() {
                                                 <th className="px-5 py-3 text-right">Status</th>
                                             </tr>
                                         </thead>
-                                        <tbody className="divide-y divide-slate-100">
+                                        {/* <tbody className="divide-y divide-slate-100">
                                             <tr className="hover:bg-slate-50 transition">
                                                 <td className="px-5 py-3 font-medium text-slate-700">Sameer Gorai</td>
                                                 <td className="px-5 py-3 text-slate-500">Admin</td>
@@ -205,7 +205,7 @@ export default function Page() {
                                                     <span className="px-2 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold">Offline</span>
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                        </tbody> */}
                                     </table>
                                 </div>
                             </div>
